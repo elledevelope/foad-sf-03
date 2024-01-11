@@ -33,6 +33,9 @@ class Formations
     #[ORM\Column(length: 15)]
     private ?string $lieu = null;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $resume = null;
+
     // #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     // private ?\DateTimeInterface $createdAt = null;
 
@@ -117,5 +120,17 @@ class Formations
 
     //     return $this;
     // }
+
+    public function getResume(): ?string
+    {
+        return $this->resume;
+    }
+
+    public function setResume(string $resume): static
+    {
+        $this->resume = $resume;
+
+        return $this;
+    }
 
     }
