@@ -30,11 +30,10 @@ Bon travail.
 
 
 ---
-<!-- `composer require orm-fixtures --dev` -->
+jeu de données:
 `composer require --dev doctrine/doctrine-fixtures-bundle` DoctrineFixturesBundle is a bundle for Symfony that provides tools for loading sample or test data into your database during development or testing.
 `composer require --dev fakerphp/faker`
 `php bin/console make:fixtures AppFixrures`
+
 `symfony console doctrine:fixture:load` command used to load data fixtures into your database. This command is part of the DoctrineFixturesBundle, which is a bundle for Symfony that provides tools for loading sample or test data into your database during development or testing.
-
-`symfony console`
-
+`symfony console doctrine:fixture:load --append` adds data without deleting previous data in db

@@ -12,10 +12,10 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $faker = Factory::create();
-        $formation = new Formations();
+        $faker = Factory::create('fr_FR');
+        // $formation = new Formations();
 
-    for ($i = 0; $i < 30; $i++) : 
+    for ($i = 0; $i <= 30; $i++) : 
         // $formation->setTitre('Un formation truc muche'); 
         // $formation->setDescription('Une description de la formation truc muche');
         // $formation->setDuree(3); 
@@ -23,11 +23,12 @@ class AppFixtures extends Fixture
         // $formation->setLieu('presentiel');
         // $manager->persist($formation);
 
+        $formation = new Formations();
         $formation->setTitre($faker->sentence()); 
         $formation->setDescription($faker->paragraph()); 
         $formation->setDuree($faker->numberBetween(0, 365)); 
-        $formation->setNiveau('Expert');
-        $formation->setLieu('presentiel');
+        $formation->setNiveau($faker->randomElement(['debutant', 'intermidiare', 'expert']));
+        $formation->setLieu($faker->randomElement(['presentiel', 'distanciel']));
         $manager->persist($formation);
     endfor;
 
