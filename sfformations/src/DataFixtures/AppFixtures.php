@@ -25,6 +25,7 @@ class AppFixtures extends Fixture
 
         $formation = new Formations();
         $formation->setTitre($faker->sentence()); 
+        $formation->setResume($faker->sentence()); 
         $formation->setDescription($faker->paragraph()); 
         $formation->setDuree($faker->numberBetween(0, 365)); 
         $formation->setNiveau($faker->randomElement(['debutant', 'intermidiare', 'expert']));
