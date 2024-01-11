@@ -14,16 +14,16 @@ class FormationsType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('resume')
+            // ->add('resume')
             ->add('description')
             ->add('duree')
             ->add('niveau')
-            ->add('lieu')
-            ->add('createdAt', DateTimeType::class, [
-                'widget' => 'single_text',
-                'input_format' => 'yyyy-MM-dd HH:mm:ss',
-                'view_timezone' => 'Europe/Paris',
-            ]);
+            ->add('lieu');
+            // ->add('createdAt', DateTimeType::class, [
+            //     'widget' => 'single_text',
+            //     'input_format' => 'yyyy-MM-dd HH:mm:ss',
+            //     'view_timezone' => 'Europe/Paris',
+            // ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

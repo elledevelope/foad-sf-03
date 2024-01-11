@@ -18,28 +18,28 @@ class Formations
     #[ORM\Column(length: 255)]
     private ?string $titre = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $resume = null;
+    // #[ORM\Column(type: Types:TEXT)]
+    // private ?string $resume = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $duree = null;
+    #[ORM\Column]
+    private ?int $duree = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 20)]
     private ?string $niveau = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 15)]
     private ?string $lieu = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $createdAt = null;
+    // #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    // private ?\DateTimeInterface $createdAt = null;
 
-    public function __construct()
-    {
-        $this->createdAt = new \Datetime();
-    }
+    // public function __construct()
+    // {
+    //     $this->createdAt = new \Datetime();
+    // }
 
     public function getId(): ?int
     {
@@ -58,18 +58,6 @@ class Formations
         return $this;
     }
 
-    public function getResume(): ?string
-    {
-        return $this->resume;
-    }
-
-    public function setResume(string $resume): static
-    {
-        $this->resume = $resume;
-
-        return $this;
-    }
-
     public function getDescription(): ?string
     {
         return $this->description;
@@ -82,12 +70,12 @@ class Formations
         return $this;
     }
 
-    public function getDuree(): ?string
+    public function getDuree(): ?int
     {
         return $this->duree;
     }
 
-    public function setDuree(string $duree): static
+    public function setDuree(int $duree): static
     {
         $this->duree = $duree;
 
@@ -118,15 +106,16 @@ class Formations
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->createdAt;
-    }
+    // public function getResume(): ?string
+    // {
+    //     return $this->resume;
+    // }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): static
-    {
-        $this->createdAt = $createdAt;
+    // public function setResume(string $resume): static
+    // {
+    //     $this->resume = $resume;
 
-        return $this;
+    //     return $this;
+    // }
+
     }
-}

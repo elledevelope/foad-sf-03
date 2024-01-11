@@ -12,7 +12,7 @@
                 <div class="card-body text-center">
                     <h5 class="card-title font-weight-bold text-primary">{{ formation.titre }}</h5>
                     <h6 class="card-subtitle mb-2 text-body-secondary">
-                        {{ formation.resume }}
+                        {# {{ formation.resume }} #}
                     </h6>
                     <p class="card-text">{{ formation.description }}</p>
 
@@ -20,7 +20,7 @@
                     <span class="badge bg-primary text-light">Niveau: {{ formation.niveau }}</span>
                     <span class="badge bg-primary text-light">Lieu: {{ formation.lieu }}</span>
 
-                    <p class="small text-muted" style="padding-top: 15px;">{{ formation.createdAt|date('d/m/Y à H:m:s', 'Europe/paris') }}</p>                
+                    {# <p class="small text-muted" style="padding-top: 15px;">{{ formation.createdAt|date('d/m/Y à H:m:s', 'Europe/paris') }}</p>                 #}
                 </div>
             </div>
         {% endfor %}
