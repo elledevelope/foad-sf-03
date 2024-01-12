@@ -56,3 +56,4 @@ https://easyadmin.readthedocs.io/en/latest/
 
 `composer require easycorp/easyadmin-bundle`
 `php bin/console make:admin:dashboard`
+`php bin/console make:admin:crud`
