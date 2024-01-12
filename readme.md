@@ -55,3 +55,4 @@ https://symfony.com/bundles/EasyAdminBundle/current/index.html
 https://easyadmin.readthedocs.io/en/latest/
 
 `composer require easycorp/easyadmin-bundle`
+`php bin/console make:admin:dashboard`
