@@ -37,8 +37,10 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Nos formations')
-            ->disableDarkMode(); //remove darkmode
+            //->renderContentMaximized()
+            //->renderSidebarMinimized() //sidebar with icons only
+            //->disableDarkMode(true); //remove darkmode
+            ->setTitle('Nos formations');
     }
 
     public function configureMenuItems(): iterable
@@ -50,7 +52,8 @@ class DashboardController extends AbstractDashboardController
         //Another way to do (array)
         return [
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
-            MenuItem::linkToCrud('Formations', 'fas fa-list', Formations::class),
+            MenuItem::linkToRoute('Retour au site', 'fa-solid fa-arrow-rotate-left', 'app_home'),
+            MenuItem::linkToCrud('Formations', 'fa-solid fa-graduation-cap', Formations::class),
         ];
     }
 }
