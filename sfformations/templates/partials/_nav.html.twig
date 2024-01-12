@@ -14,8 +14,8 @@
 						<span class="sr-only">(current)</span>
 					</a>
 				</li>
-
-				{% if app.user %}
+				{# {% if app.user %} #}
+				{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 					<li class="nav-item">
 						<a class="nav-link" href="{{ path('app_logout') }}">Log out</a>
 					</li>
@@ -28,8 +28,15 @@
 					</li>
 				{% endif %}
 
-
+				{# admin #}
+				{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('admin') }}">Admin</a>
+					</li>
+				{% endif %}
 			</ul>
+
+
 		</div>
 	</div>
 </nav>
