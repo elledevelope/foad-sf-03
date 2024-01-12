@@ -48,3 +48,10 @@ Bon travail.
 `php bin/console doctrine:migrations:migrate`
 `symfony console make:auth` Login form authenticator
 `symfony console make:registration-form`
+
+## Dashboard (easy admin) :
+https://symfony.com/bundles
+https://symfony.com/bundles/EasyAdminBundle/current/index.html
+https://easyadmin.readthedocs.io/en/latest/
+
+`composer require easycorp/easyadmin-bundle`
