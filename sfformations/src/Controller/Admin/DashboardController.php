@@ -37,12 +37,20 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Nos formations');
+            ->setTitle('Nos formations')
+            ->disableDarkMode(); //remove darkmode
     }
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Formations', 'fas fa-list', Formations::class);
+        //One way to do (with yield)
+        // yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        // yield MenuItem::linkToCrud('Formations', 'fas fa-list', Formations::class);
+
+        //Another way to do (array)
+        return [
+            MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
+            MenuItem::linkToCrud('Formations', 'fas fa-list', Formations::class),
+        ];
     }
 }
