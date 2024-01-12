@@ -47,3 +47,4 @@ Bon travail.
 `php bin/console doctrine:migrations:migrate`
 `php bin/console doctrine:migrations:migrate`
 `symfony console make:auth` Login form authenticator
+`symfony console make:registration-form`
