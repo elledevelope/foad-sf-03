@@ -44,3 +44,6 @@ Bon travail.
 ## User Symfony :
 `composer require symfony/security-bundle` SecurityBundle
 `symfony console make:user` create User
+`php bin/console doctrine:migrations:migrate`
+`php bin/console doctrine:migrations:migrate`
+`symfony console make:auth` Login form authenticator
