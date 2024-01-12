@@ -57,3 +57,14 @@ https://easyadmin.readthedocs.io/en/latest/
 `composer require easycorp/easyadmin-bundle`
 `php bin/console make:admin:dashboard`
 `php bin/console make:admin:crud`
+
+------
+
+Ajouter les info suivantes pour un User: 
+- nom
+- prenom
+- age
+- telephone
+- adresse
+
+Ajout le CRUD pour les users au dashboard
