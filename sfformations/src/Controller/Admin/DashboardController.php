@@ -53,7 +53,8 @@ class DashboardController extends AbstractDashboardController
         return [
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
             MenuItem::linkToRoute('Retour au site', 'fa-solid fa-arrow-rotate-left', 'app_home'),
-            MenuItem::linkToCrud('Formations', 'fa-solid fa-graduation-cap', Formations::class),
+            MenuItem::section('Formations'),
+            MenuItem::linkToCrud('Liste de formations', 'fa-solid fa-graduation-cap', Formations::class),
         ];
     }
 }
