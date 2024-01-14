@@ -38,7 +38,7 @@ Bon travail.
 
 `symfony console doctrine:fixture:load` command used to load data fixtures into your database. This command is part of the DoctrineFixturesBundle, which is a bundle for Symfony that provides tools for loading sample or test data into your database during development or testing.
 `symfony console doctrine:fixture:load --append` adds data without deleting previous data in db
-
+sy
 
 ----
 ## User Symfony :
@@ -56,7 +56,7 @@ https://easyadmin.readthedocs.io/en/latest/
 
 `composer require easycorp/easyadmin-bundle`
 `php bin/console make:admin:dashboard`
-`php bin/console make:admin:crud`
+`php bin/console make:admin:crud` here you choose Admin or User
 
 ------
 
