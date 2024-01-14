@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Formations;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -55,6 +56,9 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToRoute('Retour au site', 'fa-solid fa-arrow-rotate-left', 'app_home'),
             MenuItem::section('Formations'),
             MenuItem::linkToCrud('Liste de formations', 'fa-solid fa-graduation-cap', Formations::class),
+
+            MenuItem::section('Users'),
+            MenuItem::linkToCrud('Liste de users', 'fa-solid fa-user', User::class),
         ];
     }
 }
