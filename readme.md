@@ -42,7 +42,7 @@ sy
 
 ----
 ## User Symfony :
-`composer require symfony/security-bundle` SecurityBundle
+`composer require symfony/security-bundle` is used to add the Symfony Security Bundle to your Symfony project. The **Security Bundle** is a part of the Symfony framework and provides tools for handling authentication and authorization in your application.
 `symfony console make:user` create User
 `php bin/console doctrine:migrations:migrate`
 `php bin/console doctrine:migrations:migrate`
