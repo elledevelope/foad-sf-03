@@ -4,22 +4,64 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Register</h1>
+	<div class="container-log">
+		<div class="wrapper">
 
-	{{ form_errors(registrationForm) }}
+			<h5>Register</h5>
 
-	{{ form_start(registrationForm) }}
-	{{ form_row(registrationForm.nom) }}
-	{{ form_row(registrationForm.prenom) }}
-	{{ form_row(registrationForm.age) }}
-	{{ form_row(registrationForm.adresse) }}
-	{{ form_row(registrationForm.telephone) }}
-	{{ form_row(registrationForm.email) }}
-	{{ form_row(registrationForm.plainPassword, {
+			{{ form_errors(registrationForm) }}
+
+			{{ form_start(registrationForm) }}
+
+
+			<div class="input-box">
+				{{ form_row(registrationForm.nom) }}
+				<i class='bx bxs-user'></i>
+			</div>
+
+			<div class="input-box">
+			{{ form_row(registrationForm.prenom) }}
+			</div>
+
+			<div class="input-box">
+			{{ form_row(registrationForm.age) }}
+			</div>
+	
+			<div class="input-box">
+			{{ form_row(registrationForm.adresse) }}
+			</div>
+
+			<div class="input-box">
+			{{ form_row(registrationForm.telephone) }}
+			</div>
+			
+			
+			<div class="input-box">
+			{{ form_row(registrationForm.email) }}
+			<i class='bx bxs-envelope'></i>
+			</div>
+
+			<div class="input-box">
+			{{ form_row(registrationForm.plainPassword, {
             label: 'Password'
-        }) }}
-	{{ form_row(registrationForm.agreeTerms) }}
+        	}) }}
+			<i class='bx bxs-lock-alt'></i>
+			</div>
+		
+			<div class="input-box">
+			{{ form_row(registrationForm.agreeTerms) }}
+			</div>
 
-	<button type="submit" class="btn btn-primary">Register</button>
-	{{ form_end(registrationForm) }}
+			<button type="submit" class="btn btn-primary">Register</button>
+			{{ form_end(registrationForm) }}
+
+			<div class="register-link">
+				<p>Already a member?</p>
+				<a href="{{ path('app_login') }}">Login</a>
+			</div>
+
+		</div>
+	</div>
+
 {% endblock %}
+
