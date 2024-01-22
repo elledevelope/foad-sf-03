@@ -5,9 +5,7 @@
 
 {% block body %}
 	<header>
-		<p>Actuellement nous avons
-			{{ formations.getTotalItemCount }}
-			formation(s) dans notre catalogue</p>
+		<p>Actuellement nous avons <span class="total">{{ formations.getTotalItemCount }} formation(s)</span> dans notre catalogue</p>
 	</header>
 
 	{# {{ dump(formations) }} #}
