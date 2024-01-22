@@ -4,6 +4,11 @@
 {% endblock %}
 
 {% block body %}
+	<header>
+		<p>Actuellement nous avons
+			{{ formations.getTotalItemCount }}
+			formation(s) dans notre catalogue</p>
+	</header>
 
 	{# {{ dump(formations) }} #}
 
@@ -11,28 +16,35 @@
 		<h1 class="text-center fw-bold mt-4" style="padding-top: 50px;">Bienvenue sur notre site dédié aux formations !</h1>
 		<p class="text-center text-dark">Découvrez les toutes dernières opportunités de développement professionnel</p>
 
-{# card, loop #}
+		{# card, loop #}
 
-<div class="container">
-    <div class="row">
-        {% for formation in formations %}
-            <div class="col-md-4 mb-4">
-                <div class="card d-flex flex-column justify-content-between shadow bg-light">
-                    <div class="card-body text-center flex-fill">
-                        <h5 class="card-title font-weight-bold text-primary">{{ formation.titre }}</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">{{ formation.resume }}</h6>
-                        <p class="card-text">{{ formation.description }}</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <span class="badge bg-primary text-light">Durée: {{ formation.duree }}</span>
-                        <span class="badge bg-primary text-light">Niveau: {{ formation.niveau }}</span>
-                        <span class="badge bg-primary text-light">Lieu: {{ formation.lieu }}</span>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-</div>
+		<div class="container">
+			<div class="row">
+				{% for formation in formations %}
+					<div class="col-md-4 mb-4">
+						<div class="card d-flex flex-column justify-content-between shadow bg-light">
+							<div class="card-body text-center flex-fill">
+								<h5 class="card-title font-weight-bold text-primary">{{ formation.titre }}</h5>
+								<h6 class="card-subtitle mb-2 text-body-secondary">{{ formation.resume }}</h6>
+								<p class="card-text">{{ formation.description }}</p>
+							</div>
+							<div class="card-footer text-center">
+								<span class="badge bg-primary text-light">Durée:
+									{{ formation.duree }}</span>
+								<span class="badge bg-primary text-light">Niveau:
+									{{ formation.niveau }}</span>
+								<span class="badge bg-primary text-light">Lieu:
+									{{ formation.lieu }}</span>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+
+		<footer>
+			{{ knp_pagination_render(formations) }}
+		</footer>
 
 
-{% endblock %}
+	{% endblock %}
