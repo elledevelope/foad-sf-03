@@ -14,6 +14,9 @@ class UserFixtures extends Fixture
     {
         $faker = Factory::create('fr_FR');
     for ($i = 0; $i <= 10; $i++) : 
+
+        //dump($faker->e164PhoneNumber());
+        
         $user = new User();
         $user->setNom($faker->lastName()); 
         $user->setPrenom($faker->firstName()); 
