@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Category;
 use App\Entity\Formation;
 use App\Entity\Formations;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -13,26 +14,27 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create('fr_FR');
-        // $formation = new Formations();
 
-    for ($i = 0; $i <= 30; $i++) : 
-        // $formation->setTitre('Un formation truc muche'); 
-        // $formation->setDescription('Une description de la formation truc muche');
-        // $formation->setDuree(3); 
-        // $formation->setNiveau('Expert');
-        // $formation->setLieu('presentiel');
-        // $manager->persist($formation);
+        for ($j = 0; $j <= 5; $j++) :
+            $category = new Category();
+            $category->setTitre($faker->randomElement(['infomatique', 'bureautique', 'securité', 'anglais', 'management']));
+            $manager->persist($category);
+        endfor;
 
-        $formation = new Formations();
-        $formation->setTitre($faker->sentence()); 
-        $formation->setResume($faker->sentence()); 
-        $formation->setDescription($faker->paragraph()); 
-        $formation->setDuree($faker->numberBetween(0, 365)); 
-        $formation->setNiveau($faker->randomElement(['debutant', 'intermidiare', 'expert']));
-        $formation->setLieu($faker->randomElement(['presentiel', 'distanciel']));
-        $manager->persist($formation);
-    endfor;
+        for ($i = 0; $i <= 30; $i++) :
+            $formation = new Formations();
 
-        $manager->flush();
+            $formation->setTitre($faker->words(3, true))
+                ->setResume($faker->sentence())
+                ->setDescription($faker->paragraph())
+                ->setDuree($faker->numberBetween(0, 365))
+                ->setNiveau($faker->randomElement(['debutant', 'intermidiare', 'expert']))
+                ->setLieu($faker->randomElement(['presentiel', 'distanciel']))
+                ->setCategory($faker->numberBetween(1, 6));
+
+            $manager->persist($formation);
+        endfor;
+
+        // $manager->flush();
     }
 }
