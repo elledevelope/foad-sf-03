@@ -2,8 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
 use App\Entity\Formations;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,16 +15,16 @@ class FormationsType extends AbstractType
     {
         $builder
             ->add('titre')
-            // ->add('resume')
             ->add('description')
             ->add('duree')
             ->add('niveau')
-            ->add('lieu');
-            // ->add('createdAt', DateTimeType::class, [
-            //     'widget' => 'single_text',
-            //     'input_format' => 'yyyy-MM-dd HH:mm:ss',
-            //     'view_timezone' => 'Europe/Paris',
-            // ]);
+            ->add('lieu')
+            ->add('resume')
+            ->add('category', EntityType::class, [
+                'class' => Category::class,
+'choice_label' => 'titre',
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
