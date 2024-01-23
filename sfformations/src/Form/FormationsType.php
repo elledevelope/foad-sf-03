@@ -17,6 +17,7 @@ class FormationsType extends AbstractType
             // ->add('resume')
             ->add('description')
             ->add('duree')
+            ->add('category')
             ->add('niveau')
             ->add('lieu');
             // ->add('createdAt', DateTimeType::class, [
