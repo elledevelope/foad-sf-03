@@ -10,11 +10,11 @@
             <tr>
                 <th>Id</th>
                 <th>Titre</th>
-                <th>Resume</th>
                 <th>Description</th>
                 <th>Duree</th>
                 <th>Niveau</th>
                 <th>Lieu</th>
+                <th>Resume</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -23,11 +23,11 @@
             <tr>
                 <td>{{ formation.id }}</td>
                 <td>{{ formation.titre }}</td>
-                <td>{{ formation.resume }}</td>
                 <td>{{ formation.description }}</td>
                 <td>{{ formation.duree }}</td>
                 <td>{{ formation.niveau }}</td>
                 <td>{{ formation.lieu }}</td>
+                <td>{{ formation.resume }}</td>
                 <td>
                     <a href="{{ path('app_formations_show', {'id': formation.id}) }}">show</a>
                     <a href="{{ path('app_formations_edit', {'id': formation.id}) }}">edit</a>

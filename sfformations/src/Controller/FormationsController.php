@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Formations;
-use App\Form\FormationsType;
+use App\Form\Formations1Type;
 use App\Repository\FormationsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,7 +26,7 @@ class FormationsController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $formation = new Formations();
-        $form = $this->createForm(FormationsType::class, $formation);
+        $form = $this->createForm(Formations1Type::class, $formation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,7 +53,7 @@ class FormationsController extends AbstractController
     #[Route('/{id}/edit', name: 'app_formations_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Formations $formation, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(FormationsType::class, $formation);
+        $form = $this->createForm(Formations1Type::class, $formation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
