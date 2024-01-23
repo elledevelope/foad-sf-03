@@ -14,26 +14,41 @@
 						<span class="sr-only">(current)</span>
 					</a>
 				</li>
+
 				{# {% if app.user %} #}
 				{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_logout') }}">Log out</a>
-					</li>
+
+					{# ADMIN #}
+					{% if is_granted('ROLE_ADMIN')%}
+						<li class="nav-item">
+							<a class="btn btn-primary" href="{{ path('admin') }}">Admin</a>
+						</li>
+						<li class="nav-item">
+							<a class="btn btn-danger" href="{{ path('app_logout') }}">Log out</a>
+						</li>
+					{% else %}
+						<li class="nav-item">
+							<a class="btn btn-primary" href="{{ path('app_logout') }}">Log out</a>
+						</li>
+					{% endif %}
+
 				{% else %}
 					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_login') }}">Log in</a>
+						<a class="btn btn-primary" href="{{ path('app_login') }}">Log in</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_register') }}">Register</a>
-					</li>
+
+					{% if not is_granted('ROLE_ADMIN') %}
+						<a href="{{ path('app_register') }}" class="btn btn-primary">Register</a>
+					{% endif %}
+
 				{% endif %}
 
 				{# admin #}
-				{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('admin') }}">Admin</a>
-					</li>
-				{% endif %}
+				{# {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+													<li class="nav-item">
+														<a class="nav-link" href="{{ path('admin') }}">Admin</a>
+													</li>
+												{% endif %} #}
 			</ul>
 
 
