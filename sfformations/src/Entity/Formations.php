@@ -1,11 +1,11 @@
 <?php
-
 namespace App\Entity;
 
 use App\Repository\FormationsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use DateTime;
 
 #[ORM\Entity(repositoryClass: FormationsRepository::class)]
 class Formations
@@ -17,9 +17,6 @@ class Formations
 
     #[ORM\Column(length: 255)]
     private ?string $titre = null;
-
-    // #[ORM\Column(type: Types:TEXT)]
-    // private ?string $resume = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
@@ -36,13 +33,9 @@ class Formations
     #[ORM\Column(type: Types::TEXT)]
     private ?string $resume = null;
 
-    // #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    // private ?\DateTimeInterface $createdAt = null;
-
-    // public function __construct()
-    // {
-    //     $this->createdAt = new \Datetime();
-    // }
+    #[ORM\ManyToOne(inversedBy: 'formations')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Category $category = null;
 
     public function getId(): ?int
     {
@@ -109,18 +102,6 @@ class Formations
         return $this;
     }
 
-    // public function getResume(): ?string
-    // {
-    //     return $this->resume;
-    // }
-
-    // public function setResume(string $resume): static
-    // {
-    //     $this->resume = $resume;
-
-    //     return $this;
-    // }
-
     public function getResume(): ?string
     {
         return $this->resume;
@@ -133,4 +114,15 @@ class Formations
         return $this;
     }
 
+    public function getCategory(): ?Category
+    {
+        return $this->category;
     }
+
+    public function setCategory(?Category $category): static
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+}
