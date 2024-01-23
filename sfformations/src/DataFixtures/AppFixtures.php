@@ -21,7 +21,7 @@ class AppFixtures extends Fixture
             $manager->persist($category);
         endfor;
 
-        for ($i = 0; $i <= 30; $i++) :
+        for ($i = 0; $i <= 10; $i++) :
             $formation = new Formations();
 
             $formation->setTitre($faker->words(3, true))
@@ -29,10 +29,13 @@ class AppFixtures extends Fixture
                 ->setDescription($faker->paragraph())
                 ->setDuree($faker->numberBetween(0, 365))
                 ->setNiveau($faker->randomElement(['debutant', 'intermidiare', 'expert']))
-                ->setLieu($faker->randomElement(['presentiel', 'distanciel']))
-                ->setCategory($faker->numberBetween(1, 6));
+                ->setLieu($faker->randomElement(['presentiel', 'distanciel']));
 
-            $manager->persist($formation);
+            // Get a random category and set it for the formation
+            $category = $manager->getRepository(Category::class)->find($faker->numberBetween(1, 6));
+            $formation->setCategory($category);
+
+            // $manager->persist($formation);
         endfor;
 
         // $manager->flush();
